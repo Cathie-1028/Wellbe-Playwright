@@ -1,7 +1,26 @@
 
-# Playwright
+# Node modules (always ignore)
 node_modules/
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
+
+# Playwright specific folders
+test-results/
+playwright-report/
+.playwright/
+
+# VS Code settings (optional, if you're using VS Code)
+.vscode/
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Env files
+.env
+.env.*
+
+# Coverage reports
+coverage/

@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('sign-up', async ({ page }) => {
   await page.goto('https://wellbe-ui.vercel.app/sign-up?company=Mayan%20Solutions&department=Marketing&firstName=Catherine&lastName=Alcala&email=catherineanne0128%40gmail.com&role=employee');
   await page.getByRole('textbox', { name: 'Password' }).click();
   await page.getByRole('textbox', { name: 'Password' }).fill('1234567890');

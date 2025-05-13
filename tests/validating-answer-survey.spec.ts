@@ -2,21 +2,21 @@ import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
   await page.goto('https://wellbe-ui.vercel.app/get-started');
-  await page.getByRole('button', { name: 'Get started' }).click();
+ await page.getByRole('button', { name: 'Get started' }).click();
   await page.getByRole('textbox', { name: 'Email Address' }).click();
   await page.getByRole('textbox', { name: 'Email Address' }).fill('catherineanne0128@gmail.com');
   await page.getByRole('textbox', { name: 'Email Address' }).press('Tab');
   await page.getByRole('textbox', { name: 'Password' }).fill('1234567890');
   await page.getByRole('button', { name: 'Log in' }).click();
   await page.getByRole('button', { name: 'Start Your Well-being Journey' }).click();
-  await page.getByRole('button', { name: 'Ready? Let\'s Start' }).click();
+  await page.getByRole('button', { name: 'Ready? Let\'s Start' }).click(); 
 
 
 // Check if the survey has already been completed
 const alreadyAnsweredMessage = page.locator('p:has-text("You already answered all the questions. Well done!")');
 
 // Try to wait for it for a short time — if it doesn't appear, continue survey
-const isAlreadyAnsweredVisible = await alreadyAnsweredMessage.isVisible({ timeout: 2000 }).catch(() => false);
+ const isAlreadyAnsweredVisible = await alreadyAnsweredMessage.isVisible({ timeout: 2000 }).catch(() => false); 
 
 if (isAlreadyAnsweredVisible) {
   console.log('Survey already answered — skipping the rest.');

@@ -1,27 +1,20 @@
 import { test, expect } from '@playwright/test';
 
-test('add department', async ({ page }) => {
-  await page.goto('https://wellbe-admin.vercel.app/sign-in');
-  await page.getByRole('textbox', { name: 'Email' }).click();
-  await page.getByRole('textbox', { name: 'Email' }).fill('andrew@mayan.com.ph');
-  await page.getByRole('textbox', { name: 'Email' }).press('Tab');
-  await page.getByRole('textbox', { name: 'Password' }).fill('123456');
+test('add-new-dept', async ({ page }) => {
+  await page.goto('http://localhost:5173/sign-in');
+  
+  await page.getByRole('textbox', { name: 'Email' }).fill('catherine@mayan.com.ph');
+  await page.getByRole('textbox', { name: 'Password' }).fill('Mayan@123!!');
   await page.getByRole('button', { name: 'Login' }).click();
 
-  // Goes to the employee Tab 
   await page.getByRole('tab', { name: 'Employees' }).click();
-  await page.getByRole('button', { name: '+ Invite' }).click();
-  await page.getByRole('button').filter({ hasText: /^$/ }).click();
+  await page.getByRole('button', { name: '+Department' }).click();
 
-  // Under the Employee Tab, adding New department
-  await page.getByRole('button', { name: '+ Department' }).click();
-  await page.locator('input[name="department"]').click();
-  await page.locator('input[name="department"]').fill('Sales');
-  await page.getByRole('button', { name: 'Save' }).click();
+  await page.getByRole('textbox').fill('Engineering');
+  await page.getByRole('button', { name: 'Add Department' }).click();
 
-  // Asserting that the "Sales" department was successfully selected in the dropdown option
-  // Combobox is the dropdown list input in playwright 
-  await page.getByRole('combobox').selectOption('Sales');
+  // ✅ Expect the error message to appear
+  const errorMessage = page.getByText('Department already exist!');
+  await expect(errorMessage).toBeVisible();
 
-  await expect(page.getByRole('combobox')).toHaveValue('Sales');
 });

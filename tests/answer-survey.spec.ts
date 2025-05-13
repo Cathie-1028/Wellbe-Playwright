@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
-  await page.goto('https://wellbe-ui.vercel.app/get-started');
-  await page.getByRole('button', { name: 'Get started' }).click();
+  await page.goto('http://localhost:3400/sign-in');
+  // await page.getByRole('button', { name: 'Get started' }).click();
   await page.getByRole('textbox', { name: 'Email Address' }).click();
   await page.getByRole('textbox', { name: 'Email Address' }).fill('catherineanne0128@gmail.com');
   await page.getByRole('textbox', { name: 'Email Address' }).press('Tab');

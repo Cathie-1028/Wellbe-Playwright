@@ -7,6 +7,7 @@ test('test', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Password' }).click();
   await page.getByRole('textbox', { name: 'Password' }).fill('1234567890');
   await page.getByRole('button', { name: 'Log in' }).click();
+  
   await page.getByRole('tab', { name: 'My Wellbe' }).click();
   // await page.getByRole('button', { name: 'View Result' }).click();
   // await page.locator('div').filter({ hasText: /^Character75%Career92%Contentment45%Connectedness79%$/ }).first().click();

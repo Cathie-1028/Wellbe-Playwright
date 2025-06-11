@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('CSV upload should update chart', async ({ page }) => {
+test('scatter plot visual changed', async ({ page }) => {
   await page.goto('https://admin-wellbe.vercel.app/sign-in');
   await page.getByText('EmailPassword').click();
   await page.getByRole('textbox', { name: 'Email' }).fill('catherine@mayan.com.ph');

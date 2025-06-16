@@ -1,0 +1,30 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://employee-wellbe-develop.vercel.app/sign-in');
+  await page.getByRole('textbox', { name: 'Email Address' }).click();
+  await page.getByRole('textbox', { name: 'Email Address' }).fill('catherine@mayan.com.ph');
+  await page.getByRole('textbox', { name: 'Password' }).click();
+  await page.getByRole('textbox', { name: 'Password' }).fill('123456');
+  await page.getByRole('button', { name: 'Log in' }).click();
+  await page.getByRole('button', { name: 'Start Wellbeing Check in' }).click();
+  await page.getByRole('button', { name: 'Ready? Let\'s Start Quick Check' }).click();
+  await page.getByRole('button', { name: 'Strongly Agree' }).first().click();
+  await page.getByRole('button', { name: 'Strongly Agree' }).nth(1).click();
+  await page.getByRole('button', { name: 'Submit' }).click();
+  await page.getByRole('button', { name: 'Okay!' }).click();
+  await page.getByRole('button', { name: 'Proceed to next Quick Check' }).click();
+  await page.getByRole('button', { name: 'Ready? Let\'s Start Quick Check' }).click();
+  await page.getByRole('button', { name: 'Strongly Agree' }).first().click();
+  await page.getByRole('button', { name: 'Agree', exact: true }).first().click();
+  await page.getByText('Strongly DisagreeDisagreeAgreeStrongly Agree').nth(1).click();
+  await page.getByRole('button', { name: 'Strongly Agree' }).nth(1).click();
+  await page.getByRole('button', { name: 'Disagree', exact: true }).nth(2).click();
+  await page.getByRole('button', { name: 'Strongly Agree' }).nth(3).click();
+  await page.getByRole('button', { name: 'Strongly Agree' }).nth(4).click();
+  await page.getByRole('button', { name: 'Strongly Agree' }).nth(3).click();
+  await page.getByRole('button', { name: 'Disagree', exact: true }).nth(4).click();
+  await page.getByRole('button', { name: 'Submit' }).click();
+  await page.getByRole('button', { name: 'Okay!' }).click();
+  await page.getByRole('button', { name: 'Okay!' }).click();
+});
